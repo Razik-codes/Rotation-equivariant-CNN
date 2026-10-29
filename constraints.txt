@@ -1,0 +1,2 @@
+# Preserve ESCNN / lie-learn compatibility during runtime and isolated builds.
+numpy==1.26.4

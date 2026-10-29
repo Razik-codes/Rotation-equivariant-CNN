@@ -1,0 +1,65 @@
+dataset: breastmnist
+model: cnn
+models:
+- cnn
+- c4
+training_regime: original
+seed: 42
+seeds:
+- 42
+- 123
+- 456
+split_seed: 2026
+validation_size: null
+train_limit: null
+val_limit: null
+test_limit: null
+batch_size: 128
+max_steps: 100
+validate_every: 5
+learning_rate: 0.001
+weight_decay: 0.0
+device: cuda
+num_threads: 2
+num_workers: 0
+deterministic: true
+download: false
+data_root: data
+output_dir: runs/breastmnist
+channels:
+  cnn:
+  - 13
+  - 28
+  - 43
+  - 43
+  c4:
+  - 7
+  - 14
+  - 28
+  - 28
+augmentation:
+  mode: online
+  angles:
+  - 0
+  - 90
+  - 180
+  - 270
+  probabilities:
+  - 0.25
+  - 0.25
+  - 0.25
+  - 0.25
+rotation:
+  interpolation: bilinear
+  fill: 0.0
+test_angles:
+- 0
+- 90
+- 180
+- 270
+protocol: c4-rotation
+selection_metric: clean_validation_accuracy
+track: rotation-augmentation
+conventional_augmentation:
+  crop_padding: 0
+  horizontal_flip_probability: 0.0

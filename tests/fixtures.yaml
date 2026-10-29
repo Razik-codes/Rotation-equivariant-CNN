@@ -1,0 +1,63 @@
+dataset: mnist
+model: cnn
+models:
+- cnn
+- c4
+- c8
+training_regime: original
+seed: 42
+seeds:
+- 42
+split_seed: 2026
+validation_size: 5000
+train_limit: 64
+val_limit: 32
+test_limit: 32
+batch_size: 16
+max_steps: 4
+validate_every: 2
+learning_rate: 0.001
+weight_decay: 0.0
+device: cpu
+num_threads: 2
+num_workers: 0
+deterministic: true
+download: true
+data_root: data
+output_dir: runs/validation/synthetic
+channels:
+  cnn:
+  - 4
+  - 8
+  - 8
+  - 8
+  c4:
+  - 2
+  - 2
+  - 2
+  - 2
+  c8:
+  - 2
+  - 2
+  - 2
+  - 2
+augmentation:
+  mode: online
+  angles:
+  - 0
+  - 90
+  - 180
+  - 270
+  probabilities:
+  - 0.25
+  - 0.25
+  - 0.25
+  - 0.25
+rotation:
+  interpolation: bilinear
+  fill: 0.0
+test_angles:
+- 0
+- 90
+- 180
+- 270
